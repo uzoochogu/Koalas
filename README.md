@@ -1,5 +1,5 @@
 # Ursidae
-A shared library for parsing Comma Separated Value(CSV) files.
+A shared library for parsing Comma Separated Value (CSV) files.
 
 ## Features
 

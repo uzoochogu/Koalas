@@ -1,3 +1,4 @@
+https://github.com/uzoochogu/Ursidae/actions/workflows/cmake.yml/badge.svg
 # Ursidae
 A shared library for parsing Comma Separated Value (CSV) files.
 

@@ -1,4 +1,5 @@
 ![CMake workflow](https://github.com/uzoochogu/Ursidae/actions/workflows/cmake.yml/badge.svg)
+![CMake Window Build](https://github.com/uzoochogu/Ursidae/actions/workflows/cmake_windows.yml/badge.svg)
 ![GitHub](https://img.shields.io/github/license/uzoochogu/Ursidae)
 ![GitHub top language](https://img.shields.io/github/languages/top/uzoochogu/Ursidae)
 # Ursidae

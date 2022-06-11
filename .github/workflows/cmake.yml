@@ -1,4 +1,6 @@
+
 name: cmake build
+
 
 on:
   push:
@@ -22,7 +24,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        
+
         - {
             name: "Ubuntu Latest GCC", artifact: "Linux.7z",
             os: ubuntu-latest,

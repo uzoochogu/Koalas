@@ -7,11 +7,16 @@ project(Ursidae VERSION 1.0 DESCRIPTION "CSV shared lib")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(SOURCES
+    src/ursidae.cpp
+    src/main.cpp
+)
 
-include_directories(${PROJECT_NAME} PUBLIC include)
-include_directories(${PROJECT_NAME} PUBLIC src)
+add_executable(Ursidae ${SOURCES})
 
-add_library(Ursidae src/ursidae.cpp)     #todo
+target_include_directories(Ursidae
+    PRIVATE 
+        ${PROJECT_SOURCE_DIR}/include
+)
 
-set_target_properties(Ursidae PROPERTIES VERSION ${PROJECT_VERSION})
 

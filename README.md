@@ -1,8 +1,9 @@
-![Linux](https://github.com/uzoochogu/Ursidae/actions/workflows/cmake.yml/badge.svg)
-![Windows](https://github.com/uzoochogu/Ursidae/actions/workflows/cmake_windows.yml/badge.svg)
+![Windows](https://github.com/uzoochogu/Ursidae/actions/workflows/windows.yml/badge.svg)
+![Ubuntu](https://github.com/uzoochogu/Ursidae/actions/workflows/ubuntu.yml/badge.svg)
+![macOS](https://github.com/uzoochogu/Ursidae/actions/workflows/macos.yml/badge.svg)
 ![GitHub](https://img.shields.io/github/license/uzoochogu/Ursidae)
 ![GitHub top language](https://img.shields.io/github/languages/top/uzoochogu/Ursidae)
-# Ursidae
+# Ursidae 
 A shared library for parsing Comma Separated Value (CSV) files.
 
 ## Features

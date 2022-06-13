@@ -1,7 +1,8 @@
 #include <iostream> 
+#include "ursidae.hpp"
 
 
 
-int main() {
-    std::cout<< "Ursidae !! \n";
+void foo() {
+    std::cout << "I dont know what foo is ! \n";
 }

@@ -1,5 +1,6 @@
-#ifndef KOALAS_HPP
-#define KOALAS_HPP
+#ifndef URSIDAE_HPP
+#define URSIDAE_HPP
 
+void foo();
 
 #endif

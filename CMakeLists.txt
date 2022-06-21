@@ -12,7 +12,17 @@ set(SOURCES
     src/main.cpp
 )
 
-add_executable(Ursidae ${SOURCES})
+
+option(BUILD_SHARED_LIBS "" OFF)
+if (BUILD_SHARED_LIBS)
+   add_library(Ursidae SHARED
+    src/ursidae.cpp)
+else()
+   add_library(Ursidae STATIC
+    src/ursidae.cpp)
+endif()
+
+
 
 target_include_directories(Ursidae
     PRIVATE 

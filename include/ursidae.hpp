@@ -22,8 +22,19 @@ namespace Ursidae
     public:
         //constructors
         DataTable();
-        DataTable(std::string filepath);                  //initialize with a csv file.
-        DataTable(std::string data, bool isData);         //initialize with a string of comma separated values
+        ~DataTable();
+        
+        
+        DataTable(const DataTable &dt);                 //copy constructor
+        DataTable(DataTable&& source);                  //move constructor
+
+
+
+        DataTable(std::string data);                                             //initialize with a string of comma separated values
+        DataTable(std::string data, std::vector<std::string> specs= {0});        //Define datatype specifications
+        DataTable(std::string filepath, bool isFile = false);                    //initialize with a csv file.
+        DataTable(std::string filepath, bool isFile = false, std::vector<std::string> specs= {0});  
+          
 
         //template<typename key, typename value>
         //DataTable(std::unordered_map<key, value> data);  
@@ -31,22 +42,32 @@ namespace Ursidae
         DataTable(std::unordered_map<std::string, std::vector<std::string>>);
 
         DataTable(std::vector<std::vector<std::string>> data); 
-        DataTable(std::vector<std::vector<std::string>> data, std::vector<std::string> specs); //An Enum can work for the specs
+        DataTable(std::vector<std::vector<std::string>> data, std::vector<std::string> specs = {0});      //An Enum can work for the specs
+
+
+        //Operators
+        DataTable operator=(DataTable dt);
+        std::string& operator[](int index);
+
+
+
 
         //member functions
-        void read_csv(std::string filepath, std::string encoding);
+        void read_csv(std::string filepath, std::string encoding="utf8");
         void to_csv(std::string filepath);
 
-        //more functionality
+        //more functionality here
 
 
 
     };
 
 
-    std::vector<std::vector<std::string>> read_csv(std::string filepath, std::string encoding); //example of overloaded function
+    std::vector<std::vector<std::string>> read_csv(std::string filepath, std::string encoding="utf8"); //example of overloaded function
 	void to_csv(std::string filepath);
 
+
+    //more functionality here
 
 
 

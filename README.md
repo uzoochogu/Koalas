@@ -29,10 +29,11 @@ This Library can be built and used as either a shared library or a static librar
 git clone https://github.com/uzoochogu/Ursidae
 ```
 2. Navigate to repositary download directory
-3. Run cMake to configure build system, with the following flag.
+3. Run cMake to configure build system.
 ```powershell
 cmake .
 ```
+##### Build the project
 4. **(Shared)** For Shared library build run
 ```powershell
 cmake --build -DBUILD_SHARED_LIBS:BOOL=ON
@@ -71,13 +72,13 @@ This library supports both object oriented programming paradigm and functional p
 There are multiple ways to create a DataTable. 
 1. **Passing Comma Separated values**
 ```c++
-DataTable ursa{"Name,Sex,Age,Weight,Akpos John,Male,27,70Kg,Eze Kelechi,Not Disclosing,23,60kg", True};
+DataTable ursa{"Name,Sex,Age,Weight,Akpos John,Male,27,70Kg,Eze Kelechi,Not Disclosing,23,60kg"};
 ```
 This creates a Table like:
 
 2. **Initialize with a csv file**      
 ```c++
-DataTable ursa(std::string filepath);              
+DataTable ursa(std::string filepath, true);              
 ```
 3. **Initialize with a vector of vector of strings**
 ```c++
@@ -87,7 +88,7 @@ std::vector<std::vector<strings>> data = {{"Name",      "Sex",           "Age","
 ```
 
         
-4. **Specify the datatype data**
+4. **Specify the datatype of the data**: All methods of initializing support this.
 ```c++        
 std::vector<std::vector<strings>> data = {{"Name",      "Sex",           "Age","Weight(Kg)"},
 					  {"Akpos John","Male",          "27", "70"  },
@@ -101,25 +102,25 @@ DataTable ursa(data, {"std::string", "std::string", "std::string", "unsigned int
 #### OOP Approach
 ```c++
 DataTable ursa;
-ursa.read_csv("test.csv", utf8);  //Stores it in memory more efficiently.
+ursa.read_csv("test.csv", "utf8");  //Stores it in memory more efficiently.
 ```
 
 #### Functional Approach
 ```c++
-std::vector<std::vector<std::string>> ursa = Ursidae::read_csv("test.csv", utf8)     //if you want to manipulate it yourself but less efficient.
+std::vector<std::vector<std::string>> ursa = Ursidae::read_csv("test.csv", "utf8")     //if you want to manipulate it yourself but less efficient.
 ```
 
 ### Streaming  from file / Random Access 
 You can query specific cells within the csv file.
 ```c++
-std::vector<double> cash = ursa.at(-1,col);            //-1 indicates the whole rows the at() method can also be used to
+int age = std::static_cast <int>(ursa.at(-1,2));                                      //returns string, converted to 23
 //or
-std::vector<double> cash = ursa[-1][col];              //same implementation as at()
+int age = std::static_cast <int>(ursa[-1][2]);                                        //same implementation as at()
 ```
 
 #### Using functional approach
 ```c++
-std::vector<double> cash = Ursidae::read_csv("test.csv", utf8)[-1][col];
+int age = std::static_cast <int>( Ursidae::read_csv("test.csv", "utf8")[-1][2]);     //23
 ```
 
 

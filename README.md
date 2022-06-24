@@ -70,11 +70,15 @@ This library supports both object oriented programming paradigm and functional p
 
 ### Creating a DataTable:
 There are multiple ways to create a DataTable. 
-1. **Passing Comma Separated values**
+1. **Passing a list of Comma Separated values**
 ```c++
-DataTable ursa{"Name,Sex,Age,Weight,Akpos John,Male,27,70Kg,Eze Kelechi,Not Disclosing,23,60kg"};
+DataTable ursa{"Name,Sex,Age,Weight(kg)","Akpos John,Male,27,70", "Eze Kelechi,Not Disclosing,23,60"};
 ```
 This creates a Table like:
+| |Name 	| Sex            | Age | Weight(Kg) |
+|-| ---------   | -------        | --- | ----       |
+|0|Akpos John   | Male           | 27  | 70         |
+|1|Eze Kelechi  | Not Disclosing | 23  | 60         |
 
 2. **Initialize with a csv file**      
 ```c++
@@ -82,18 +86,19 @@ DataTable ursa(std::string filepath, true);
 ```
 3. **Initialize with a vector of vector of strings**
 ```c++
-std::vector<std::vector<strings>> data = {{"Name",      "Sex",           "Age","Weight(Kg)"},
-					  {"Akpos John","Male",          "27", "70"  },
-					  {"EzeKelechi","Not Disclosing","23", "60"  }};
+std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
+					  {"Akpos John", "Male",          "27", "70"  },
+					  {"Eze Kelechi","Not Disclosing","23", "60"  
+DataTable ursa(data);
 ```
 
         
 4. **Specify the datatype of the data**: All methods of initializing support this.
 ```c++        
-std::vector<std::vector<strings>> data = {{"Name",      "Sex",           "Age","Weight(Kg)"},
-					  {"Akpos John","Male",          "27", "70"  },
-					  {"EzeKelechi","Not Disclosing","23", "60"  }};
-DataTable ursa(data, {"std::string", "std::string", "std::string", "unsigned int" });
+std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
+					  {"Akpos John", "Male",          "27", "70"  },
+					  {"Eze Kelechi","Not Disclosing","23", "60"  }};
+DataTable ursa(data, {"std::string", "std::string", "std::string", "unsigned int", "double" });
 ```
 5. Maps - Experimental
 
@@ -113,9 +118,9 @@ std::vector<std::vector<std::string>> ursa = Ursidae::read_csv("test.csv", "utf8
 ### Streaming  from file / Random Access 
 You can query specific cells within the csv file.
 ```c++
-int age = std::static_cast <int>(ursa.at(-1,2));                                      //returns string, converted to 23
+int age = std::static_cast <int>(ursa.at(-1,2));          //returns string, converted to 23
 //or
-int age = std::static_cast <int>(ursa[-1][2]);                                        //same implementation as at()
+int age = std::static_cast <int>(ursa[-1][2]);            //same implementation as at()
 ```
 
 #### Using functional approach
@@ -127,8 +132,8 @@ int age = std::static_cast <int>( Ursidae::read_csv("test.csv", "utf8")[-1][2]);
 ### Write to File
 Writes to a csv file, you can create, overwrite or append.
 ```c++
-ursa.to_csv("test.csv");
-Ursidae::to_csv("test.csv");     //functional approach
+ursa.to_csv("test.csv");	       //overwrites or creates file
+Ursidae::to_csv("test.csv", data);     //functional approach
 ```
 
 ### Editing Cells

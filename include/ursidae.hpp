@@ -30,9 +30,9 @@ namespace Ursidae
 
 
 
-        DataTable(std::string data);                                             //initialize with a string of comma separated values
-        DataTable(std::string data, std::vector<std::string> specs= {0});        //Define datatype specifications
-        DataTable(std::string filepath, bool isFile = false);                    //initialize with a csv file.
+        DataTable(std::vector<std::string> data);                                             //initialize with a string of comma separated values
+        DataTable(std::vector<std::string> data, std::vector<std::string> specs= {0});        //Define datatype specifications
+        DataTable(std::string filepath, bool isFile = false);                    	      //initialize with a csv file.
         DataTable(std::string filepath, bool isFile = false, std::vector<std::string> specs= {0});  
           
 
@@ -64,7 +64,7 @@ namespace Ursidae
 
 
     std::vector<std::vector<std::string>> read_csv(std::string filepath, std::string encoding="utf8"); //example of overloaded function
-	void to_csv(std::string filepath);
+    void to_csv(std::string filepath, std::vector<std::vector<std::string>>);
 
 
     //more functionality here

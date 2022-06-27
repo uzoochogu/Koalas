@@ -41,7 +41,7 @@ mkdir build
 cd build
 ```
 
-#### For a static library
+#### For static library
 ```powershell
 cmake ..
 ```
@@ -49,7 +49,7 @@ cmake ..
 cmake --build .
 ```
 
-#### For a shared library 
+#### For shared library 
 ```powershell
 cmake -D BUILD_SHARED_LIBS=ON ..
 ```

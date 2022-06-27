@@ -52,11 +52,13 @@ cmake --build .
 #### For a shared library 
 ```powershell
 cmake -D BUILD_SHARED_LIBS=ON ..
+```
+```powershell
 cmake --build .
 ```
-For users with Microsoft Visual Studio , this automatically creates a solution file (Ursidae.sln) in the build directory.
+For users with Microsoft Visual Studio , this automatically creates a solution file `Ursidae.sln` in the build directory.
 
-## Documentation
+## Getting Started
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.
 <p>In an Object oriented approach, DataTables are used.</p>
 

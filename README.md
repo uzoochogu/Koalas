@@ -25,8 +25,8 @@ This Library can be built and used as either a shared library or a static librar
 
 ### Building
 
-```powershell
-git clone https://github.com/uzoochogu/Ursidae
+```cmd
+git clone https://github.com/uzoochogu/Ursidae.git
 mkdir build
 cd build
 ```

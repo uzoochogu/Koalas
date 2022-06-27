@@ -23,46 +23,24 @@ This Library can be built and used as either a shared library or a static librar
 - Cmake 3.10+
 - C++ Compiler that support C++17 and above
 
-### Windows
-1. clone repositary
+### Building
+
 ```powershell
 git clone https://github.com/uzoochogu/Ursidae
+mkdir build
+cd build
 ```
-2. Navigate to repositary download directory
-3. Run cMake to configure build system.
+
+**(Shared)** For Static library
 ```powershell
-cmake .
+cmake ..
+cmake --build .
 ```
-##### Build the project
-4. **(Shared)** For Shared library build run
+**(Static)** For Shared library 
 ```powershell
-cmake --build -DBUILD_SHARED_LIBS:BOOL=ON
+cmake -D BUILD_SHARED_LIBS=ON ..
+cmake --build .
 ```
-4. **(Static)** For Static library run
-```powershell
-cmake --build -DBUILD_SHARED_LIBS:BOOL=OFF
-```
-5. **(Shared)** Copy generated `dll` file and `.lib` file to you project folder and add additonal dependencies in your project. (Guide coming soon).
-
-
-5. **(Static)** Copy generated `.lib` file into you Project folder and add dependency.
-
-#### Adding Dependency
-From the project properties page 
-```
-Project->Properties->Linker->Input->Additional Dependencies  -> add the .lib file here 
-Project ->Properties->Configuration Properties->Linker->General ->Additional Library Directories  -> add the  corresponding .lib directory here .
-```
-or
-```
-From the solution explorer . Right click the project name ->Add->Existing Item… and select  the right .lib file.
-```
-
-### macOS
-(WIP)
-### Linux (Ubuntu)
-(WIP)
-
 
 ## Simple User Tutorial
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.

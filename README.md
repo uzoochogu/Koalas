@@ -18,12 +18,12 @@ A shared library for parsing Comma Separated Value (CSV) files.
 
 
 ## Integration
-This Library can be built and used as either a shared library or a static library (you get to choose !) 
+##### This Library can be built and used as either a shared library or a static library (you get to choose !) 
 
-For non-CMake projects, [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) can be your goto. Simply add the the project as submodule and follow instructions below to build either a shared or static library and link it to you project. A simple examle can be [found here](https://github.com/uzoochogu/Ursidae/tree/examples)
+For non-CMake projects, [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) can be your goto. Simply add the the project as submodule and [follow instructions](#building-the-library) to build either a shared or static library and link it to you project. A simple examle can be [found here](https://github.com/uzoochogu/Ursidae/tree/examples)
 
 #### CMake
-You can also use the embed Ursidae into an existing cmake project in two(2) ways
+You can also use the embed Ursidae into an existing cmake project in two(2) ways:
 
 1. Using [Fetchcontent](https://cmake.org/cmake/help/latest/module/FetchContent.html), cmake's way of managing dependencies. This project is completely compatible with CMake FetchContent, and we recommend users to utilize that method to incorporate the library into their projects. An example of how this is done can be found [in this branch](https://github.com/uzoochogu/Ursidae/tree/examples)
 
@@ -37,24 +37,23 @@ You can also use the embed Ursidae into an existing cmake project in two(2) ways
 ### Building the Library
 
 ```cmd
-git clone https://github.com/uzoochogu/Ursidae.git
 mkdir build
 cd build
 ```
 
-#### For Static library
+#### For a static library
 ```powershell
 cmake ..
 cmake --build .
 ```
-#### For Shared library 
+#### For a shared library 
 ```powershell
 cmake -D BUILD_SHARED_LIBS=ON ..
 cmake --build .
 ```
 For users with Visual Studio, this automatically creates a solution file 
 
-## Simple User Tutorial
+## Documentation
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.
 <p>In an Object oriented approach, DataTables are used.</p>
 

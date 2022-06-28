@@ -17,54 +17,48 @@ A shared library for parsing Comma Separated Value (CSV) files.
 |Print CSV                           |Displays contents in the command line                                                                                   |
 
 
-## Installation
-This Library can be built and used as either a shared library or a static library.
+## Integration
+##### This Library can be built and used as either a shared library or a static library (you get to choose !) 
+
+For non-CMake projects, [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) can be your goto. Simply add the project as submodule and [follow instructions](#building-the-library) to build either a shared or static library and link it to your project. A simple examle can be [found here](https://github.com/uzoochogu/Ursidae/tree/examples)
+
+#### CMake
+You can also embed Ursidae into an existing cmake project in two(2) ways:
+
+1. Using [Fetchcontent](https://cmake.org/cmake/help/latest/module/FetchContent.html), cmake's way of managing dependencies. This project is completely compatible with CMake FetchContent, and we recommend users to utilize this method to incorporate the library into their projects. An example of how this is done can be found [in this branch](https://github.com/uzoochogu/Ursidae/tree/examples)
+
+2. The project can be cloned to a subdirectory of your project via [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) or manually and called from the `add_subdirectory` in your `CMakeLists.txt` file. You can also see an example [of this here](https://github.com/uzoochogu/Ursidae/tree/examples)
+ 
+
 ### Requirements
 - Cmake 3.10+
 - C++ Compiler that support C++17 and above
 
-### Windows
-1. clone repositary
+### Building the Library
+
+```cmd
+mkdir build
+cd build
+```
+
+#### For static library
 ```powershell
-git clone https://github.com/uzoochogu/Ursidae
+cmake ..
 ```
-2. Navigate to repositary download directory
-3. Run cMake to configure build system.
 ```powershell
-cmake .
+cmake --build .
 ```
-##### Build the project
-4. **(Shared)** For Shared library build run
+
+#### For shared library 
 ```powershell
-cmake --build -DBUILD_SHARED_LIBS:BOOL=ON
+cmake -D BUILD_SHARED_LIBS=ON ..
 ```
-4. **(Static)** For Static library run
 ```powershell
-cmake --build -DBUILD_SHARED_LIBS:BOOL=OFF
+cmake --build .
 ```
-5. **(Shared)** Copy generated `dll` file and `.lib` file to you project folder and add additonal dependencies in your project. (Guide coming soon).
+For users with Microsoft Visual Studio , this automatically creates a solution file `Ursidae.sln` in the build directory.
 
-
-5. **(Static)** Copy generated `.lib` file into you Project folder and add dependency.
-
-#### Adding Dependency
-From the project properties page 
-```
-Project->Properties->Linker->Input->Additional Dependencies  -> add the .lib file here 
-Project ->Properties->Configuration Properties->Linker->General ->Additional Library Directories  -> add the  corresponding .lib directory here .
-```
-or
-```
-From the solution explorer . Right click the project name ->Add->Existing Item… and select  the right .lib file.
-```
-
-### macOS
-(WIP)
-### Linux (Ubuntu)
-(WIP)
-
-
-## Simple User Tutorial
+## Getting Started
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.
 <p>In an Object oriented approach, DataTables are used.</p>
 

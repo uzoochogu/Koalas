@@ -18,7 +18,7 @@ A shared library for parsing Comma Separated Value (CSV) files.
 
 
 ## Integration
-##### This Library can be built and used as either a shared library or a static library (you get to choose !) 
+##### This Library can be built and used as either a shared library or a static library (yup you get to choose !) 
 
 For non-CMake projects, [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) can be your goto. Simply add the project as submodule and [follow instructions](#building-the-library) to build either a shared or static library and link it to your project. A simple examle can be [found here](https://github.com/uzoochogu/Ursidae/tree/examples)
 

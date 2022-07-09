@@ -4,7 +4,7 @@
 ![GitHub](https://img.shields.io/github/license/uzoochogu/Ursidae)
 ![GitHub top language](https://img.shields.io/github/languages/top/uzoochogu/Ursidae)
 # Ursidae 
-A shared library for parsing Comma Separated Value (CSV) files.
+A shared library for parsing Comma Separated Value (CSV) files...
 
 ## Features
 

@@ -1,6 +1,6 @@
 #ifndef URSIDAE_HPP
 #define URSIDAE_HPP
-#endif
+
 
 #include <vector>
 #include <string>
@@ -74,3 +74,4 @@ namespace Ursidae
 
 
 }
+#endif

@@ -13,8 +13,8 @@ set(SOURCES
 )
 
 
-option(BUILD_SHARED_LIBS "" OFF)
-if (BUILD_SHARED_LIBS)
+option(BUILD_SHARED_LIB "" OFF)
+if (BUILD_SHARED_LIB)
    add_library(Ursidae SHARED
     src/ursidae.cpp)
 else()

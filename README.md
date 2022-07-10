@@ -111,11 +111,15 @@ DataColumn names{"Name", {"Akpos John","Eze Kelechi"}};
 
 ### Creating a DataTable
 There are multiple ways to create a DataTable. 
-1. **Initialize with a 2D vector (vector of vector) of strings**
-```cpp
+1. **Initialize with a csv file**      
+```c++
+DataTable ursa(std::string filepath, true);              
+```
+2. **Initialize with a vector of vector of strings**
+```c++
 std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
 					  {"Akpos John", "Male",          "27", "70"  },
-					  {"Eze Kelechi","Not Disclosing","23", "60"}};
+					  {"Eze Kelechi","Not Disclosing","23", "60"}}; 
 DataTable ursa(data);
 ```
 This creates a Table like:
@@ -123,32 +127,15 @@ This creates a Table like:
 |-| ---------   | -------        | --- | ----       |
 |0|Akpos John   | Male           | 27  | 70         |
 |1|Eze Kelechi  | Not Disclosing | 23  | 60         |
-
-2. **Initialize with a csv file**      
-```cpp
-DataTable ursa(std::string filepath, true);              
-```
-
-3. **Specify the datatype of the data**: All the above methods of initializing support this.
-```cpp       
+        
+3. **Specify the datatype of the data**: All methods of initializing support this.
+```c++        
 std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
 					  {"Akpos John", "Male",          "27", "70"  },
 					  {"Eze Kelechi","Not Disclosing","23", "60"  }};
 DataTable ursa(data, {"std::string", "std::string", "std::string", "unsigned int", "double" });
 ```
-4. **Composing with DataColumns**
-```cpp
-//DataColumns
-DataColumn names{"Name", {"Akpos John","Eze Kelechi"}};
-DataColumn names{"Sex", {"Male","Not Disclosing"}};
-DataColumn names{"Age", {"27","23"}};
-DataColumn names{"Weight(Kg)", {"70","60"}};
-
-//DataTable
-DataTable ursa({Name,Sex, Age, Weight});
-```
-
-5. Maps - Experimental.
+4. Maps - Experimental
 
 
 ## Reading from a CSV File

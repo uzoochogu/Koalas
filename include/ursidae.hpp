@@ -11,37 +11,24 @@
 */
 namespace Ursidae
 {
-    /**
-     * @brief DataColumns are column vectors containing a std::string name and a vector of some data
-     * 
-     * 
-     */
-    template<typename DataType>
     class DataColumn
     {
+    private:
+        std::string col_name;
+        std::vector<std::string> col_data;
+        size_t size{0};
 
     public:
         //constructors
-        DataColumn() {};
-        DataColumn(std::string name, std::vector<DataType> elements) : col_name(name), col_data(element){};  
-        
-        
-        
+        DataColumn(std::string name, std::string data) : col_name(name), col_data(generateData(data))
+        {
 
-    private:
+        }
 
-        std::string col_name;
-        std::vector<DataType> col_data;      
+        std::vector<std::string> generateData(std::string data);
+
     };
 
-
-
-
-    /**
-     * @brief DataTables is a table of data. Each DataTable is implemented as a collection of DataColumns 
-     * 
-     */
-    template<typename DataType>
     class DataTable
     {
     
@@ -56,7 +43,7 @@ namespace Ursidae
 
 
 
-        DataTable(std::vector<std::string> data);                                             //initialize with a string of comma separated values
+        //DataTable(std::vector<std::string> data);                                             //initialize with a string of comma separated values - removed
         DataTable(std::vector<std::string> data, std::vector<std::string> specs= {0});        //Define datatype specifications
         DataTable(std::string filepath, bool isFile = false);                    	      //initialize with a csv file.
         DataTable(std::string filepath, bool isFile = false, std::vector<std::string> specs= {0});  

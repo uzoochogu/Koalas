@@ -51,7 +51,7 @@ cmake --build .
 
 #### For shared library 
 ```powershell
-cmake -D BUILD_SHARED_LIBS=ON ..
+cmake -D BUILD_SHARED_LIB=ON ..
 ```
 ```powershell
 cmake --build .

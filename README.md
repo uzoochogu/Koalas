@@ -60,41 +60,42 @@ For users with Microsoft Visual Studio , this automatically creates a solution f
 
 ## Getting Started
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.
-<p>In an Object oriented approach, DataTables are used.</p>
+<p>In an Object oriented approach, DataTables and DataColumns are used. A DataTable is composed of DataColumns</p>
 
 ### Creating a DataTable:
 There are multiple ways to create a DataTable. 
+<!---
 1. **Passing a list of Comma Separated values**
 ```c++
 DataTable ursa{"Name,Sex,Age,Weight(kg)","Akpos John,Male,27,70", "Eze Kelechi,Not Disclosing,23,60"};
+```
+-->
+
+1. **Initialize with a csv file**      
+```c++
+DataTable ursa(std::string filepath, true);              
+```
+2. **Initialize with a vector of vector of strings**
+```c++
+std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
+					  {"Akpos John", "Male",          "27", "70"  },
+					  {"Eze Kelechi","Not Disclosing","23", "60"}}; 
+DataTable ursa(data);
 ```
 This creates a Table like:
 | |Name 	| Sex            | Age | Weight(Kg) |
 |-| ---------   | -------        | --- | ----       |
 |0|Akpos John   | Male           | 27  | 70         |
 |1|Eze Kelechi  | Not Disclosing | 23  | 60         |
-
-2. **Initialize with a csv file**      
-```c++
-DataTable ursa(std::string filepath, true);              
-```
-3. **Initialize with a vector of vector of strings**
-```c++
-std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
-					  {"Akpos John", "Male",          "27", "70"  },
-					  {"Eze Kelechi","Not Disclosing","23", "60"  
-DataTable ursa(data);
-```
-
         
-4. **Specify the datatype of the data**: All methods of initializing support this.
+3. **Specify the datatype of the data**: All methods of initializing support this.
 ```c++        
 std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
 					  {"Akpos John", "Male",          "27", "70"  },
 					  {"Eze Kelechi","Not Disclosing","23", "60"  }};
 DataTable ursa(data, {"std::string", "std::string", "std::string", "unsigned int", "double" });
 ```
-5. Maps - Experimental
+4. Maps - Experimental
 
 
 ### Reading from a CSV File

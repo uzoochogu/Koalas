@@ -58,6 +58,9 @@ cmake --build .
 ```
 For users with Microsoft Visual Studio , this automatically creates a solution file `Ursidae.sln` in the build directory.
 
+### Build Documentation (Optional)
+To build documentation, install [Doxygen](https://www.doxygen.nl/download.html), [Sphinx](https://www.sphinx-doc.org/en/master/usage/installation.html) and [Breathe](https://breathe.readthedocs.io/en/latest/), then set `BUILD_DOCUMENTATION=ON` when building the library
+
 ## Getting Started
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.
 <p>In an Object oriented approach, DataTables are used.</p>

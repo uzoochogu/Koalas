@@ -13,10 +13,14 @@ set(SOURCES
 )
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
-add_subdirectory(docs)
 
 
-option(BUILD_SHARED_LIB "" OFF)
+
+option(BUILD_SHARED_LIB "Specifies whether to build Shared Library" OFF)
+option(BUILD_DOCUMENTATION "Specifies whether to build the documentation for the API" OFF )
+
+
+
 if (BUILD_SHARED_LIB)
    add_library(Ursidae SHARED
     src/ursidae.cpp)
@@ -24,6 +28,11 @@ else()
    add_library(Ursidae STATIC
     src/ursidae.cpp)
 endif()
+
+if(BUILD_DOCUMENTATION)
+    add_subdirectory(docs)
+endif()
+
 
 
 target_include_directories(Ursidae

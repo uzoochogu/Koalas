@@ -23,7 +23,7 @@ namespace Ursidae
     public:
         //constructors
         DataColumn() {};
-        DataColumn(std::string name, std::vector<DataType> elements) : col_name(name), col_data(element){};  
+        DataColumn(std::string name, std::vector<DataType> elements) : col_name(name), col_data(elements){};  
         
         
         

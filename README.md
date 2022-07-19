@@ -78,77 +78,42 @@ cmake -D BUILD_DOCUMENTATION=ON -D BUILD_SHARED_LIB=ON ..
 ```
 ## Getting Started
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.
-<p>In an Object oriented approach, DataTables and DataColumns are used.</p>
+<p>In an Object oriented approach, DataTables and DataColumns are used. A DataTable is composed of DataColumns</p>
 
-### DataColumn
-DataColumns are column vectors of data. For example:
-
-<p align="left">
-	<table>
-		<tr>
-			<th>Name</th>
-		</tr>
-		<tr>
-			<td>Akpos John</td>
-		</tr>
-		<tr>
-			<td>Eze Kelechi</td>
-		</tr>
-	</table>
-</p>
-
-
-They help to optimize data storage. They are basically a wrapper around
-1. A string containing the name of the DataColumn.
-2. A vector of the stored data. (Can be string or Numeric type).
-
-### Creating a DataColumn
-1. **Passing a Name and a vector of the data**
-To create the DataColumn above:
-```cpp
-DataColumn names{"Name", {"Akpos John","Eze Kelechi"}};
-```
-
-### Creating a DataTable
+### Creating a DataTable:
 There are multiple ways to create a DataTable. 
-1. **Initialize with a 2D vector (vector of vector) of strings**
-```cpp
+<!---
+1. **Passing a list of Comma Separated values**
+```c++
+DataTable ursa{"Name,Sex,Age,Weight(kg)","Akpos John,Male,27,70", "Eze Kelechi,Not Disclosing,23,60"};
+```
+-->
+
+1. **Initialize with a csv file**      
+```c++
+DataTable ursa(std::string filepath, true);              
+```
+2. **Initialize with a vector of vector of strings**
+```c++
 std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
 					  {"Akpos John", "Male",          "27", "70"  },
-					  {"Eze Kelechi","Not Disclosing","23", "60"}};
+					  {"Eze Kelechi","Not Disclosing","23", "60"}}; 
 DataTable ursa(data);
 ```
 This creates a Table like:
-| |Name 	    | Sex            | Age | Weight(Kg) |
+| |Name 	| Sex            | Age | Weight(Kg) |
 |-| ---------   | -------        | --- | ----       |
 |0|Akpos John   | Male           | 27  | 70         |
 |1|Eze Kelechi  | Not Disclosing | 23  | 60         |
-
-2. **Initialize with a csv file**      
-```cpp
-DataTable ursa(std::string filepath, true);              
-```
-
-3. **Specify the datatype of the data**: All the above methods of initializing support this.
-```cpp       
+        
+3. **Specify the datatype of the data**: All methods of initializing support this.
+```c++        
 std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age","Weight(Kg)"},
 					  {"Akpos John", "Male",          "27", "70"  },
 					  {"Eze Kelechi","Not Disclosing","23", "60"  }};
 DataTable ursa(data, {"std::string", "std::string", "std::string", "unsigned int", "double" });
 ```
-4. **Composing with DataColumns**
-```cpp
-//DataColumns
-DataColumn names{"Name", {"Akpos John","Eze Kelechi"}};
-DataColumn names{"Sex", {"Male","Not Disclosing"}};
-DataColumn names{"Age", {"27","23"}};
-DataColumn names{"Weight(Kg)", {"70","60"}};
-
-//DataTable
-DataTable ursa({Name,Sex, Age, Weight});
-```
-
-5. Maps - Experimental.
+4. Maps - Experimental
 
 
 ## Reading from a CSV File

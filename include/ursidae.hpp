@@ -6,19 +6,45 @@
 #include <string>
 #include <unordered_map>
 
-
+/**
+  Ursidae namespace contains functions and classes used in the library
+*/
 namespace Ursidae
 {
+    /**
+     * @brief DataColumns are column vectors containing a std::string name and a vector of some data
+     * 
+     * 
+     */
+    template<typename DataType>
+    class DataColumn
+    {
+
+    public:
+        //constructors
+        DataColumn() {};
+        DataColumn(std::string name, std::vector<DataType> elements) : col_name(name), col_data(element){};  
+        
+        
+        
+
+    private:
+
+        std::string col_name;
+        std::vector<DataType> col_data;      
+    };
+
+
+
+
+    /**
+     * @brief DataTables is a table of data. Each DataTable is implemented as a collection of DataColumns 
+     * 
+     */
+    template<typename DataType>
     class DataTable
     {
-    private:	
-
-        std::vector<std::string> column;               //column names.
-        std::vector<std::string> index;                //default defined as 1-n, can be assigned to column. 
-
-        std::vector<std::vector<std::string>> data;    //raw data.
-
-
+    
     public:
         //constructors
         DataTable();
@@ -34,6 +60,9 @@ namespace Ursidae
         DataTable(std::vector<std::string> data, std::vector<std::string> specs= {0});        //Define datatype specifications
         DataTable(std::string filepath, bool isFile = false);                    	      //initialize with a csv file.
         DataTable(std::string filepath, bool isFile = false, std::vector<std::string> specs= {0});  
+
+
+        DataTable(std::vector<DataColumn<DataType>> &input);
           
 
         //template<typename key, typename value>
@@ -59,6 +88,15 @@ namespace Ursidae
         //more functionality here
 
 
+
+    private:	
+
+        std::vector<std::string> column;               //column names.
+        std::vector<std::string> index;                //default defined as 1-n, can be assigned to column. 
+
+        //std::vector<std::vector<std::string>> data;    //raw data.
+
+        std::vector<DataColumn<DataType>> data;
 
     };
 

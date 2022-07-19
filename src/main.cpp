@@ -3,5 +3,5 @@
 #include "ursidae.hpp"
 
 int main() {
-    foo();
+    Ursidae::DataTable<int> dt();
 }

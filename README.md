@@ -78,38 +78,9 @@ cmake -D BUILD_DOCUMENTATION=ON -D BUILD_SHARED_LIB=ON ..
 ```
 ## Getting Started
 This library supports both object oriented programming paradigm and functional paradigm. For larger projects, the Object oriented usage will allow for better organization, efficiency and memory management. You might consider the Functional usage for quick protyping and smaller projects.
-<p>In an Object oriented approach, DataTables and DataColumns are used.</p>
+<p>In an Object oriented approach, DataTables and DataColumns are used. A DataTable is composed of DataColumns</p>
 
-### DataColumn
-DataColumns are column vectors of data. For example:
-
-<p align="left">
-	<table>
-		<tr>
-			<th>Name</th>
-		</tr>
-		<tr>
-			<td>Akpos John</td>
-		</tr>
-		<tr>
-			<td>Eze Kelechi</td>
-		</tr>
-	</table>
-</p>
-
-
-They help to optimize data storage. They are basically a wrapper around
-1. A string containing the name of the DataColumn.
-2. A vector of the stored data. (Can be string or Numeric type).
-
-### Creating a DataColumn
-1. **Passing a Name and a vector of the data**
-To create the DataColumn above:
-```cpp
-DataColumn names{"Name", {"Akpos John","Eze Kelechi"}};
-```
-
-### Creating a DataTable
+### Creating a DataTable:
 There are multiple ways to create a DataTable. 
 1. **Initialize with a csv file**      
 ```c++
@@ -123,7 +94,7 @@ std::vector<std::vector<strings>> data = {{"Name",       "Sex",           "Age",
 DataTable ursa(data);
 ```
 This creates a Table like:
-| |Name 	    | Sex            | Age | Weight(Kg) |
+| |Name 	| Sex            | Age | Weight(Kg) |
 |-| ---------   | -------        | --- | ----       |
 |0|Akpos John   | Male           | 27  | 70         |
 |1|Eze Kelechi  | Not Disclosing | 23  | 60         |

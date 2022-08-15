@@ -2,6 +2,4 @@
 
 #include "ursidae.hpp"
 
-int main() {
-    foo();
-}
+Ursidae::DataTable dt;

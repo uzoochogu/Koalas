@@ -5,16 +5,20 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include <fstream>
 
 
 namespace Ursidae
 {
+    
     class DataTable
     {
     private:	
 
         std::vector<std::string> column;               //column names.
-        std::vector<std::string> index;                //default defined as 1-n, can be assigned to column. 
+        std::vector<int> index;                //default defined as 1-n, can be assigned to column. 
+        std::fstream inputFile;
+        std::fstream outputFile;
 
         std::vector<std::vector<std::string>> data;    //raw data.
 
@@ -22,6 +26,14 @@ namespace Ursidae
     public:
         //constructors
         DataTable();
+        explicit DataTable(std::string&);
+
+
+        template <typename Datatype1, typename... Datatype>
+        DataTable(const std::vector<std::string_view>&,
+              const std::vector<Datatype1>&, const std::vector<Datatype>&...);
+
+        
         ~DataTable();
         
         

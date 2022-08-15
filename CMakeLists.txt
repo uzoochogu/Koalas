@@ -7,6 +7,8 @@ project(Ursidae VERSION 1.0 DESCRIPTION "CSV shared lib")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
+
 set(SOURCES
     src/ursidae.cpp
     src/main.cpp
@@ -18,7 +20,6 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 option(BUILD_SHARED_LIB "Specifies whether to build Shared Library" OFF)
 option(BUILD_DOCUMENTATION "Specifies whether to build the documentation for the API" OFF )
-
 
 
 if (BUILD_SHARED_LIB)
@@ -36,7 +37,7 @@ endif()
 
 
 target_include_directories(Ursidae
-    PRIVATE 
+    PUBLIC
         ${PROJECT_SOURCE_DIR}/include
 )
 

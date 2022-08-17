@@ -5,34 +5,28 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
+#include <fstream>
 
 /**
   Ursidae namespace contains functions and classes used in the library
 */
 namespace Ursidae
 {
-    /**
-     * @brief DataColumns are column vectors containing a std::string name and a vector of some data
-     * 
-     * 
-     */
-    template<typename DataType>
-    class DataColumn
+
+ 
+   /**
+    * @brief DataColumns are column vectors containing a std::string name and a vector of some data
+    * 
+    */
+    class DataTable
     {
 
-    public:
-        //constructors
-        DataColumn() {};
-        DataColumn(std::string name, std::vector<DataType> elements) : col_name(name), col_data(elements){};  
-        
-        
-        
 
-    private:
+        std::vector<std::string> column;               //column names.
+        std::vector<int> index;                        //default defined as 1-n, can be assigned to column. 
+        std::fstream inputFile;
+        std::fstream outputFile;
 
-        std::string col_name;
-        std::vector<DataType> col_data;      
-    };
 
 
 
@@ -48,6 +42,14 @@ namespace Ursidae
     public:
         //constructors
         DataTable();
+        explicit DataTable(std::string&);
+
+
+        template <typename Datatype1, typename... Datatype>
+        DataTable(const std::vector<std::string_view>&,
+              const std::vector<Datatype1>&, const std::vector<Datatype>&...);
+
+        
         ~DataTable();
         
         

@@ -2,4 +2,9 @@
 
 #include "ursidae.hpp"
 
-Ursidae::DataTable dt;
+int main() 
+{
+    Ursidae::DataTable dt;
+    return 0;
+}
+

@@ -1,0 +1,5 @@
+Namespace Ursidae
+=================
+
+.. doxygennamespace:: Ursidae
+

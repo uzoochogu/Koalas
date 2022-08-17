@@ -4,12 +4,11 @@
 
 namespace fs = std::filesystem;
 
-
-    /**
-    * @brief variadic Constructor that auto assigns index
-    *
-    * @todo implement function
-    */
+/**
+* @brief variadic Constructor that auto assigns index
+*
+* @todo implement function
+*/
 
 template <typename Datatype1, typename... Datatype>
 Ursidae::DataTable::DataTable(const std::vector<std::string_view>& column,

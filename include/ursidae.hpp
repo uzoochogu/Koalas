@@ -28,7 +28,7 @@ namespace Ursidae
 
 
         template <typename Datatype1, typename... Datatype>
-        DataTable(const std::vector<std::string_view>&,
+        DataTable(const std::vector<std::string>&,
               const std::vector<Datatype1>&, const std::vector<Datatype>&...);
 
         

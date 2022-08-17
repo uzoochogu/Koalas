@@ -11,7 +11,7 @@ namespace fs = std::filesystem;
 */
 
 template <typename Datatype1, typename... Datatype>
-Ursidae::DataTable::DataTable(const std::vector<std::string_view>& column,
+Ursidae::DataTable::DataTable(const std::vector<std::string>& column,
               const std::vector<Datatype1>& col1, const std::vector<Datatype>&... cols): column(column), index(col1.size())  {
     
     

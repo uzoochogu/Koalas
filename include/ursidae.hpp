@@ -20,24 +20,6 @@ namespace Ursidae
     */
     class DataTable
     {
-
-
-        std::vector<std::string> column;               //column names.
-        std::vector<int> index;                        //default defined as 1-n, can be assigned to column. 
-        std::fstream inputFile;
-        std::fstream outputFile;
-
-
-
-
-
-    /**
-     * @brief DataTables is a table of data. Each DataTable is implemented as a collection of DataColumns 
-     * 
-     */
-    template<typename DataType>
-    class DataTable
-    {
     
     public:
         //constructors
@@ -64,7 +46,6 @@ namespace Ursidae
         DataTable(std::string filepath, bool isFile = false, std::vector<std::string> specs= {0});  
 
 
-        DataTable(std::vector<DataColumn<DataType>> &input);
           
 
         //template<typename key, typename value>
@@ -86,8 +67,12 @@ namespace Ursidae
         //member functions
         void read_csv(std::string filepath, std::string encoding="utf8");
         void to_csv(std::string filepath);
+        
 
         //more functionality here
+
+        //std::vector<std::vector<std::string>> read_csv(std::string filepath, std::string encoding="utf8"); //example of overloaded function
+        void to_csv(std::string filepath, std::vector<std::vector<std::string>>);
 
 
 
@@ -98,13 +83,10 @@ namespace Ursidae
 
         //std::vector<std::vector<std::string>> data;    //raw data.
 
-        std::vector<DataColumn<DataType>> data;
-
     };
 
 
-    std::vector<std::vector<std::string>> read_csv(std::string filepath, std::string encoding="utf8"); //example of overloaded function
-    void to_csv(std::string filepath, std::vector<std::vector<std::string>>);
+    
 
 
     //more functionality here

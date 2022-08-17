@@ -22,8 +22,7 @@ jobs:
       matrix:
         os: [ubuntu-20.04]   
         include:
-        - os: ubuntu-18.04
-        - os: ubuntu-18.04          
+         
 
     steps:
     - name: Install ninja
